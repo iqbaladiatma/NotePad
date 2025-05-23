@@ -1,17 +1,5 @@
-<x-app-layout>
-<x-slot name="header">
-    <div class="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center sm:gap-0">
-      <h2 class="text-3xl font-bold leading-tight tracking-wide text-purple-800 font-poppins">
-        📝 My Notes
-      </h2>
-      <a href="{{ route('notes.create') }}"
-         class="px-5 py-2 font-semibold text-white transition-all duration-300 rounded-lg shadow-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 hover:scale-105 font-poppins">
-        + Create New Note
-      </a>
-    </div>
-</x-slot>
-
-
+@extends('layouts.app')
+@section('content')
   <div class="min-h-screen py-12 bg-gradient-to-br from-purple-50 via-white to-purple-100 font-poppins">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
       @if (session('success'))
@@ -53,4 +41,4 @@
       </div>
     </div>
   </div>
-</x-app-layout>
+@endsection

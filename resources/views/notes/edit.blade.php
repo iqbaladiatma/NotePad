@@ -1,11 +1,6 @@
-<x-app-layout>
-  <x-slot name="header">
-    <div class="px-6 py-4 text-white shadow bg-gradient-to-r from-purple-600 to-purple-800 rounded-t-xl">
-      <h2 class="text-2xl font-bold tracking-wide font-poppins">
-        🛠️ Edit Note
-      </h2>
-    </div>
-  </x-slot>
+@extends('layouts.app')
+@section('content')
+    
 
   <div class="min-h-screen py-12 bg-gradient-to-br from-purple-50 via-white to-purple-100 font-poppins">
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
@@ -50,4 +45,4 @@
       </div>
     </div>
   </div>
-</x-app-layout>
+@endsection
