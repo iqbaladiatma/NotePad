@@ -1,38 +1,47 @@
 <x-app-layout>
   <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('Create New Note') }}
-    </h2>
+    <div class="px-6 py-4 text-white shadow bg-gradient-to-r from-purple-600 to-purple-800 rounded-t-xl">
+      <h2 class="text-2xl font-bold tracking-wide font-poppins">
+        ✍️ Create New Note
+      </h2>
+    </div>
   </x-slot>
 
-  <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 text-gray-900">
-          <form action="{{ route('notes.store') }}" method="POST">
+  <div class="min-h-screen py-12 bg-gradient-to-br from-purple-50 via-white to-purple-100 font-poppins">
+    <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+      <div class="overflow-hidden shadow-xl bg-white/90 backdrop-blur-sm sm:rounded-xl animate-fade-in-up">
+        <div class="p-8 text-gray-900">
+          <form action="{{ route('notes.store') }}" method="POST" class="space-y-6">
             @csrf
-            <div class="mb-4">
-              <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-              <input type="text" name="title" id="title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
+
+            <div>
+              <label for="title" class="block mb-1 text-sm font-semibold text-purple-800">Title</label>
+              <input type="text" name="title" id="title"
+                     class="block w-full px-4 py-2 border border-purple-300 rounded-md shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                     required>
               @error('title')
               <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
               @enderror
             </div>
 
-            <div class="mb-4">
-              <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-              <textarea name="content" id="content" rows="6" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required></textarea>
+            <div>
+              <label for="content" class="block mb-1 text-sm font-semibold text-purple-800">Content</label>
+              <textarea name="content" id="content" rows="6"
+                        class="block w-full px-4 py-2 border border-purple-300 rounded-md shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                        required></textarea>
               @error('content')
               <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
               @enderror
             </div>
 
-            <div class="flex justify-end space-x-2">
-              <a href="{{ route('notes.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            <div class="flex justify-end pt-4 space-x-3">
+              <a href="{{ route('notes.index') }}"
+                 class="px-4 py-2 font-semibold text-purple-900 transition-all duration-200 bg-purple-100 rounded-md hover:bg-purple-200">
                 Cancel
               </a>
-              <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Create Note
+              <button type="submit"
+                      class="px-5 py-2 font-semibold text-white transition-all duration-200 rounded-md shadow bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800">
+                ✅ Create Note
               </button>
             </div>
           </form>
