@@ -1,8 +1,5 @@
 <nav class="bg-purple-800 p-4">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-        @auth
-        <a href="{{ route('dashboard') }}" class="text-white text-lg font-semibold">NotePad</a>
-        @endauth
         <a href="{{ url('/') }}" class="text-white text-lg font-semibold">NotePad</a>
 
         <div class="flex items-center space-x-4">
@@ -11,7 +8,6 @@
                 @auth
                 <a href="{{ route('dashboard') }}" class="text-white hover:text-purple-200">Dashboard</a>
                 @endauth
-
             </div>
 
             <!-- User Dropdown / Auth Links -->
@@ -47,7 +43,6 @@
                 <a href="{{ route('register') }}" class="text-white hover:text-purple-200">Register</a>
             </div>
             @endguest
-
         </div>
     </div>
 </nav>
