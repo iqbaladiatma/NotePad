@@ -1,81 +1,123 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center bg-[#f4f4f4] dark:bg-[#1e1e1e] font-mono text-gray-900 dark:text-gray-100">
-    <div class="w-[400px] bg-white dark:bg-[#2d2d2d] text-sm p-6 shadow-md border border-gray-300 dark:border-gray-700 rounded-none">
-
-        <!-- Header ala Notepad -->
-        <div class="bg-gray-200 dark:bg-[#3b3b3b] px-3 py-2 border-b border-gray-400 dark:border-gray-600 text-sm font-bold text-gray-700 dark:text-gray-200">
-            Register.txt - Notepad
-        </div>
-
-        <div class="space-y-5 mt-4">
-            <!-- Heading -->
-            <div>
-                <h2 class="text-xl font-bold text-gray-800 dark:text-white">Notepad Register</h2>
-                <p class="text-xs text-gray-500 dark:text-gray-400">Isi data dulu, bro 😎</p>
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-purple-100 font-poppins">
+    <div class="w-full max-w-md p-8">
+        <div class="bg-white/90 backdrop-blur-sm shadow-xl rounded-3xl p-8 animate-fade-in-up">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-700 to-purple-900 bg-clip-text text-transparent">Create Account</h2>
+                <p class="mt-2 text-gray-600">Join us and start organizing your notes</p>
             </div>
 
             <!-- Session Status -->
             @if (session('status'))
-                <div class="text-sm text-green-600 dark:text-green-400">
-                    {{ session('status') }}
-                </div>
+            <div class="mb-6 p-4 text-sm text-green-700 bg-green-100 rounded-xl animate-fade-in-down">
+                {{ session('status') }}
+            </div>
             @endif
 
             <!-- Form -->
-            <form method="POST" action="{{ route('register') }}" class="space-y-4">
+            <form method="POST" action="{{ route('register') }}" class="space-y-6">
                 @csrf
 
                 <!-- Name -->
                 <div>
-                    <label for="name" class="block text-xs uppercase tracking-widest text-gray-700 dark:text-gray-300">Name</label>
+                    <label for="name" class="block text-sm font-semibold text-purple-800 mb-2">Full Name</label>
                     <input id="name" name="name" type="text" value="{{ old('name') }}" required autofocus autocomplete="name"
-                        class="mt-1 w-full rounded-none bg-transparent border border-gray-400 dark:border-gray-600 text-sm text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-0 focus:border-blue-500" />
+                        class="w-full px-4 py-3 border border-purple-200 rounded-xl shadow-sm focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
+                        placeholder="Enter your full name" />
                     @error('name')
-                        <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <!-- Email -->
                 <div>
-                    <label for="email" class="block text-xs uppercase tracking-widest text-gray-700 dark:text-gray-300">Email</label>
+                    <label for="email" class="block text-sm font-semibold text-purple-800 mb-2">Email Address</label>
                     <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="username"
-                        class="mt-1 w-full rounded-none bg-transparent border border-gray-400 dark:border-gray-600 text-sm text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-0 focus:border-blue-500" />
+                        class="w-full px-4 py-3 border border-purple-200 rounded-xl shadow-sm focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
+                        placeholder="Enter your email" />
                     @error('email')
-                        <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <!-- Password -->
                 <div>
-                    <label for="password" class="block text-xs uppercase tracking-widest text-gray-700 dark:text-gray-300">Password</label>
+                    <label for="password" class="block text-sm font-semibold text-purple-800 mb-2">Password</label>
                     <input id="password" name="password" type="password" required autocomplete="new-password"
-                        class="mt-1 w-full rounded-none bg-transparent border border-gray-400 dark:border-gray-600 text-sm text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-0 focus:border-blue-500" />
+                        class="w-full px-4 py-3 border border-purple-200 rounded-xl shadow-sm focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
+                        placeholder="Create a password" />
                     @error('password')
-                        <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <!-- Confirm Password -->
                 <div>
-                    <label for="password_confirmation" class="block text-xs uppercase tracking-widest text-gray-700 dark:text-gray-300">Confirm Password</label>
+                    <label for="password_confirmation" class="block text-sm font-semibold text-purple-800 mb-2">Confirm Password</label>
                     <input id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password"
-                        class="mt-1 w-full rounded-none bg-transparent border border-gray-400 dark:border-gray-600 text-sm text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-0 focus:border-blue-500" />
+                        class="w-full px-4 py-3 border border-purple-200 rounded-xl shadow-sm focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
+                        placeholder="Confirm your password" />
                     @error('password_confirmation')
-                        <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <!-- Submit -->
                 <div>
                     <button type="submit"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 px-4 rounded-none shadow-md focus:outline-none focus:ring-0">
-                        Register
+                        class="w-full px-6 py-3 text-white font-semibold bg-gradient-to-r from-purple-700 to-purple-900 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+                        Create Account
                     </button>
+                </div>
+
+                <!-- Login Link -->
+                <div class="text-center mt-6">
+                    <p class="text-sm text-gray-600">
+                        Already have an account?
+                        <a href="{{ route('login') }}" class="font-medium text-purple-700 hover:text-purple-800 transition-colors">
+                            Sign in
+                        </a>
+                    </p>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<style>
+    @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fade-in-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out forwards;
+    }
+
+    .animate-fade-in-down {
+        animation: fade-in-down 0.6s ease-out forwards;
+    }
+</style>
 @endsection
